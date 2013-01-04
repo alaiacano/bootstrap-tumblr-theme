@@ -62,7 +62,7 @@
       {/block:IfUseResponsiveStyles}
       
       /* --- POST --- */
-      .POST {font-family: sans-serif; font-size: 14px;}
+      /* .POST {font-family: sans-serif; font-size: 14px;} */
 
       /* --- tags --- */
       .tags { margin-bottom: 10px;}
@@ -403,21 +403,14 @@
                 <div class="QUOTEINFO">
                   
                   <div class="QUOTEMARK"></div>
-                  <div class="TEXT">
-                    {Quote}
-                  </div>
+                  <blockquote>
+                    <p>{Quote}</p>
+                  </blockquote>
+                  {block:Source}
+                  <p>{Source}</p>
+                  {/block:Source}
                 
                 </div>
-                
-                <div class="BREAK"></div>
-                
-                {block:Source}
-                <div class="BY">
-                
-                  {Source}
-                
-                </div>
-                {/block:Source}
                 
               {/block:Quote}
               
