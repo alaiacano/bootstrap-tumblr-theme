@@ -59,8 +59,11 @@
       }
       {/block:IfUseResponsiveStyles}
       
-      /* --- POST --- */
-      /* .POST {font-family: sans-serif; font-size: 14px;} */
+      /* --- POSTS --- */
+      .MAINTEXT {font-size: 16px;}
+      
+      /* --- QUOTES --- */
+      .QUOTE {font-style: italic;}
 
       /* --- tags --- */
       .tags { margin-bottom: 10px;}
@@ -291,7 +294,7 @@
                 <div class="QUOTEINFO">
                   
                   <div class="QUOTEMARK"></div>
-                  <div class="TEXT">
+                  <div class="QUOTE">
                     {Question}
                   </div>
                 
@@ -339,14 +342,14 @@
               
               {block:Photo}
               
-                <div class="CENTER">
+                <div class="CENTER title">
               
                   {LinkOpenTag}<img alt="{PhotoAlt}" src="{PhotoURL-500}" />{LinkCloseTag}
 
                 </div>
 
                 {block:Caption}
-                  <div class="CAPTION">
+                  <div class="MAINTEXT">
                     {Caption}
                   </div>
                 {/block:Caption}
@@ -363,10 +366,12 @@
                   
                   <div class="QUOTEMARK"></div>
                   <blockquote>
-                    <p>{Quote}</p>
+                    <p class="QUOTE">{Quote}</p>
                   </blockquote>
                   {block:Source}
-                  <p>{Source}</p>
+                    <div class="MAINTEXT">
+                      {Source}
+                    </div>
                   {/block:Source}
                 
                 </div>
@@ -379,20 +384,14 @@
               
               {block:Link}
                 
-                <div class="THE-LINK">
+                <h3 class="title">
                 
                   <a href="{URL}" target="{Target}">{Name}</a>
                     
-                </div>
-                
-                <div class="INFO">
-                  <a href="{URL}" target="{Target}">
-                    {URL}
-                  </a>
-                </div>
+                </h3>
                 
                 {block:Description}         
-                <div class="MARGIN">{Description}</div>
+                  <div class="MAINTEXT">{Description}</div>
                 {/block:Description}
                 
               {/block:Link}
