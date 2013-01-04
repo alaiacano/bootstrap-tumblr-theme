@@ -241,17 +241,9 @@
           <div class="span2">
             <div class="date">
               {block:Date}
-              {block:NotReblog}
-                <a href="{Permalink}">{lang:Posted TimeAgo}</a>
-              {/block:NotReblog}
-              {block:Reblog}
-                {lang:PostTypeNoun reblogged from ReblogParentTitle 2}
-              {/block:Reblog}
+                <a href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}</a>
               {/block:Date}
 
-              {block:HasTags}
-              with tags:
-              {/block:HasTags}
             </div> <!-- .date -->
 
             {block:HasTags}
