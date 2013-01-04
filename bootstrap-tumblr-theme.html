@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head> 
-
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <!-- TUMBLR APPEARANCE OPTIONS -->
 
     <!-- General -->
@@ -182,7 +182,7 @@
                 <li class="divider-vertical"></li>
               
                 <li>
-                  <a href="/submit">Submit Something</a>
+                  <a href="/submit">Submit A Post</a>
                 </li>
                 {/block:SubmissionsEnabled} 
 
@@ -355,6 +355,40 @@
               {/block:Photo}
               
               <!-- /PHOTO -->
+
+              <!-- PHOTOSET -->
+
+              {block:Photoset}
+                <script>
+                  var first_photo = true;
+                </script>
+                <div id="photosetCarousel" class="carousel slide">
+                  {block:Photos}
+                    <!-- Carousel items -->
+                    <div class="carousel-inner" id='photosetInner' style='width:550px;'>
+                      <div class="item" id='photo{PhotoCount}'>
+                        <img src="{PhotoURL-500}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" />{block:Caption}
+                          <div class="carousel-caption">
+                            <h4>{Caption}</h4>
+                          </div>
+                        {/block:Caption}
+                      </div>
+                    </div>
+                  {/block:Photos}
+                <!-- Carousel nav -->
+                <a class="carousel-control left" href="#photosetCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="carousel-control right" href="#photosetCarousel" data-slide="next">&rsaquo;</a>
+              </div>       
+              <script>
+                $(document).ready(function(){
+                  $('#photo1').addClass('active');
+                });   
+              </script>        
+              {/block:Photoset}
+
+
+
+              <!-- /PHOTOSET -->
               
               <!-- QUOTE -->
               
@@ -526,7 +560,7 @@
 
     <!-- ======== SCRIPTS ======== -->
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    
     <script type="text/javascript" src="http://static.tumblr.com/vv8cdma/1HKm6e0ok/bootstrap.min.js"></script>    
 
     {block:IfShowTweetButton}
