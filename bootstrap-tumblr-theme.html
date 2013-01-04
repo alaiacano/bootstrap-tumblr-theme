@@ -297,27 +297,29 @@
             {/block:IfDisqusShortname}
 
             <div class="share-links">
-              {block:IfShowTweetButton}
-              <div class="tweet share-link">
-                <a href="https://twitter.com/share" 
-                  class="twitter-share-button" 
-                  data-url="{PlaintextPermalink}" 
-                  data-text="{PlaintextTitle}" 
-                  {block:IfTweetViaAccount}
-                  data-via="{PlaintextTweetViaAccount}" 
-                  {/block:IfTweetViaAccount}
-                  {block:IfTweetFollowAccount}
-                  data-related="{PlaintextTweetFollowAccount}" 
-                  {/block:IfTweetFollowAccount}
-                  >Tweet</a>
-              </div>
-              {/block:IfShowTweetButton}
+              {block:PermalinkPage} 
+                {block:IfShowTweetButton}
+                <div class="tweet share-link">
+                  <a href="https://twitter.com/share" 
+                    class="twitter-share-button" 
+                    data-url="{PlaintextPermalink}" 
+                    data-text="{PlaintextTitle}" 
+                    {block:IfTweetViaAccount}
+                    data-via="{PlaintextTweetViaAccount}" 
+                    {/block:IfTweetViaAccount}
+                    {block:IfTweetFollowAccount}
+                    data-related="{PlaintextTweetFollowAccount}" 
+                    {/block:IfTweetFollowAccount}
+                    >Tweet</a>
+                </div>
+                {/block:IfShowTweetButton}
 
-              {block:IfShowLikeButton}
-              <div class="like share-link">
-                <div class="fb-like" data-href="{PlaintextPermalink}" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="lucida grande"></div>
-              </div>
-              {/block:IfShowLikeButton}
+                {block:IfShowLikeButton}
+                <div class="like share-link">
+                  <div class="fb-like" data-href="{PlaintextPermalink}" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="lucida grande"></div>
+                </div>
+                {/block:IfShowLikeButton}
+              {/block:PermalinkPage} 
             </div> <!-- .share-links -->
 
           </div> <!-- .span2 -->
