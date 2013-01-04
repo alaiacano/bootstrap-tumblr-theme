@@ -61,9 +61,10 @@
       
       /* --- POSTS --- */
       .MAINTEXT {font-size: 16px;}
-      
-      /* --- QUOTES --- */
-      .QUOTE {font-style: italic;}
+
+        /* --- QUOTES --- */
+        .QUOTE {font-style: italic;}
+        
 
       /* --- tags --- */
       .tags { margin-bottom: 10px;}
@@ -73,7 +74,7 @@
       .entry { background-color: white; border-radius: 5px; padding-bottom: 20px; position: relative; }
       .entry > * { padding-left: 20px; padding-right: 20px; }
       .date { margin-bottom: 10px; }
-      .entry { margin-bottom: 10px; }
+      .entry .title { margin-bottom: 10px; }
       .entry h2:first-of-type { margin-top: 0; }
       .entry h2 { margin-top: 20px; }
       
@@ -273,17 +274,19 @@
 
           <div class="span10 entry">
           
-            <div class="title">
+            
               
-              {block:Title}
+            {block:Title}
+              <div class="title">
               <h2>
                 <a href="{Permalink}">
                   {Title}
                 </a>
               </h2>
-              {/block:Title}
+              </div> <!-- .title -->
+            {/block:Title}
                                         
-            </div> <!-- .title -->
+            
             
             <div class="POST">
 
@@ -304,7 +307,7 @@
                 
                 <div class="BREAK"></div>
                 
-                <div class="RESPONSE">
+                <div class="MAINTEXT">
                 
                   {Answer}
                 
@@ -332,7 +335,9 @@
                 {Video-500}
                 
                 {block:Caption}
-                  {Caption}
+                  <div class="MAINTEXT">
+                    {Caption}
+                  </div>
                 {/block:Caption}
                 
               {/block:Video}
@@ -369,6 +374,7 @@
                   <blockquote>
                     <p class="QUOTE">{Quote}</p>
                   </blockquote>
+
                   {block:Source}
                     <div class="MAINTEXT">
                       {Source}
@@ -386,9 +392,7 @@
               {block:Link}
                 
                 <h3 class="title">
-                
                   <a href="{URL}" target="{Target}">{Name}</a>
-                    
                 </h3>
                 
                 {block:Description}         
@@ -432,11 +436,7 @@
                     <div class="OBJ">
                       {AudioPlayerGrey}
                     </div>
-                  
-                    <div class="COUNT">
-                      This track has had {PlayCountWithLabel}
-                    </div>
-                    
+                                      
                     <div class="TRACK">
                       {block:TrackName}
                         <strong>{TrackName}</strong>
@@ -458,7 +458,9 @@
                 </div>
                 
                 {block:Caption}
-                  {Caption}
+                  <div class="MAINTEXT">
+                    {Caption}
+                  </div>
                 {/block:Caption}
                 
               {/block:Audio}
@@ -471,7 +473,7 @@
                   
         </div> <!-- .row .post -->
 
-        {block:PermalinkPagination} 
+        {block:PermalinkPage} 
         {block:IfDisqusShortname}
         <div class="row">
           <div class="span10 offset2 comments-container">
@@ -481,7 +483,7 @@
           </div> <!-- .comments-container -->
         </div>
         {/block:IfDisqusShortname}
-        {/block:PermalinkPagination} 
+        {/block:PermalinkPage} 
 
         {block:NoteCount}
         <div class="row">
