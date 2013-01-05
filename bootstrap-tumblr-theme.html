@@ -64,6 +64,14 @@
         /* --- ANSWER --- */
         .QUESTION {font-style: italic; padding-bottom: 0px;}
 
+        /* --- CHAT --- */
+        .chat {list-style-type: none;}
+        .chatuser1 {color: red;}
+        .chatuser2 {color: blue;}
+        .chatuser3 {color: green;}
+        .chatuser4 {color: orange;}
+        .chatuser5 {color: purple;}
+
         /* --- ATTRIBUTION ---*/
         .ATTRIBUTION {padding-top: 10px;}
 
@@ -296,12 +304,7 @@
                       {Question}
                     </p>
                   
-                
                 </div>
-                
-                
-                
-                <div class="BREAK"></div>
                 
                 <div class="MAINTEXT">
                 
@@ -443,7 +446,7 @@
                 <ul class="CHAT">
                 
                   {block:Lines}
-                  <li class="{Alt} {UserNumber}">{block:Label}<strong>{Label}</strong> {/block:Label}{Line}</li>
+                  <li class="chat">{block:Label}<strong class="chatuser{UserNumber}">{Label}</strong> {/block:Label}{Line}</li>
                   {/block:Lines}
                   
                 </ul>
