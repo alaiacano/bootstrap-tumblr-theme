@@ -68,6 +68,8 @@
         /* --- PHOTOSETS --- */
         .carousel {width:600px;}
         
+        /* --- ANSWER --- */
+        .QUESTION {font-style: italic; padding-bottom: 0px;}
 
       /* --- tags --- */
       .tags { margin-bottom: 10px;}
@@ -160,19 +162,14 @@
                   </li>
                   <li class="divider-vertical"></li>
                 {/block:IfLinkLogoToApplication}                
-
-                <li>
-                  <a href="http://tumblr.com/follow/{Name}">
-                    +Follow
-                  </a>
-                </li>
-
+                {block:Pages}
                 <li class="divider-vertical"></li>
                 
                 <li>
-                  <a href="/archive">{lang:Archive}</a>
+                  <a href="{URL}">{Label}</a>
                 </li>
-                
+                {/block:Pages}
+
                 {block:AskEnabled}
                 <li class="divider-vertical"></li>
                 
@@ -189,13 +186,21 @@
                 </li>
                 {/block:SubmissionsEnabled} 
 
-                {block:Pages}
                 <li class="divider-vertical"></li>
-                
+
                 <li>
-                  <a href="{URL}">{Label}</a>
+                  <a href="/archive">{lang:Archive}</a>
                 </li>
-                {/block:Pages}
+                
+                <li class="divider-vertical"></li>
+
+                <li>
+                  <a href="http://tumblr.com/follow/{Name}">
+                    <i class='icon-plus'></i>Follow
+                  </a>
+                </li>
+
+                <li class="divider-vertical"></li>
               </ul>
     
               <form class="navbar-search pull-right" action="/search" method="get">
@@ -244,7 +249,7 @@
           <div class="span2">
             <div class="date">
               {block:Date}
-                <a href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}</a>
+                Posted <a href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}</a>
               {/block:Date}
 
             </div> <!-- .date -->
@@ -289,16 +294,17 @@
               
               {block:Answer}
                 
-                <div class="QUOTEINFO">
+                <p>{lang:Asker asked}:</p>
+                <div class="MAINTEXT alert alert-info">
                   
-                  <div class="QUOTEMARK"></div>
-                  <div class="QUOTE">
-                    {Question}
-                  </div>
+                    <p class="QUESTION">
+                      {Question}
+                    </p>
+                  
                 
                 </div>
                 
-                <p>{lang:Asked by Asker}</p>
+                
                 
                 <div class="BREAK"></div>
                 
