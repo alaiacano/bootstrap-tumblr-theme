@@ -54,7 +54,10 @@
       {/block:IfUseResponsiveStyles}
       
       /* --- POSTS --- */
-      .MAINTEXT {font-size: 16px;}
+      .MAINTEXT {
+        font-size: 16px;
+        font-weight: 300;
+      }
 
         /* --- QUOTES --- */
         .QUOTE {font-style: italic;}
@@ -440,7 +443,7 @@
                 <ul class="CHAT">
                 
                   {block:Lines}
-                  <li class="chat">{block:Label}<strong class="chatuser{UserNumber}">{Label}</strong> {/block:Label}{Line}</li>
+                  <li class="chat">{block:Label}<strong class="MAINTEXT chatuser{UserNumber}">{Label}</strong> {/block:Label}{Line}</li>
                   {/block:Lines}
                   
                 </ul>
