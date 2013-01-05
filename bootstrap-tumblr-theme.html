@@ -111,11 +111,6 @@
 
 
     </style>
-
-    {block:IfApplicationStylesheetURL}
-    <!-- Import application styling -->
-    <link href="{text:Application Stylesheet URL}" rel="stylesheet">
-    {/block:IfApplicationStylesheetURL}
  
     <style type="text/css">
       <!--
@@ -252,7 +247,9 @@
           <div class="span2">
             <div class="date">
               {block:Date}
-                Posted <a href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}</a>
+                {block:RebloggedFrom}Reblogged{/block:RebloggedFrom}
+                {block:NotReblog}Posted{/block:NotReblog}
+                <a href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}</a>
               {/block:Date}
 
             </div> <!-- .date -->
