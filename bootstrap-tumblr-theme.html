@@ -2,12 +2,11 @@
 <html lang="en">
   <head> 
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <!-- TUMBLR APPEARANCE OPTIONS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- General -->
     <meta name="text:Google Analytics UA Code" content="" /> 
-    <!-- <meta name="image:Background" content="http://static.tumblr.com/vv8cdma/Ddzm1ypam/chruch.png" /> -->
-    <meta name="if:Use Responsive Styles" content="1" />
 
     <!-- Sharing Buttons -->
     <meta name="text:Tweet Via Account" content=""/>
@@ -23,6 +22,7 @@
     <link href="{Favicon}" rel="shortcut icon" />
     <link rel="apple-touch-icon" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}"> 
+
     
     <title>{block:PostTitle}{PostTitle} - {/block:PostTitle}{Title}{block:Pagination} - {lang:Page CurrentPage of TotalPages}{/block:Pagination}</title> 
 
@@ -443,7 +443,7 @@
                 <ul class="CHAT">
                 
                   {block:Lines}
-                  <li class="chat">{block:Label}<strong class="MAINTEXT chatuser{UserNumber}">{Label}</strong> {/block:Label}{Line}</li>
+                  <li class="MAINTEXT chat">{block:Label}<strong class="chatuser{UserNumber}">{Label}</strong> {/block:Label}{Line}</li>
                   {/block:Lines}
                   
                 </ul>
