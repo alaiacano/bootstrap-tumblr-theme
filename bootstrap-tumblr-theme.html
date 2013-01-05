@@ -64,6 +64,9 @@
 
         /* --- QUOTES --- */
         .QUOTE {font-style: italic;}
+
+        /* --- PHOTOSETS --- */
+        .carousel {width:600px;}
         
 
       /* --- tags --- */
@@ -360,30 +363,32 @@
 
               {block:Photoset}
                 <script>
-                  var first_photo = true;
+                  var photo_count = 0;
                 </script>
                 <div id="photosetCarousel" class="carousel slide">
-                  {block:Photos}
-                    <!-- Carousel items -->
-                    <div class="carousel-inner" id='photosetInner' style='width:550px;'>
-                      <div class="item" id='photo{PhotoCount}'>
+                  
+                  <!-- Carousel items -->
+                  
+                  <div class="carousel-inner" id='photosetInner'>
+                    {block:Photos}
+                      <div class="item">
                         <img src="{PhotoURL-500}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" />{block:Caption}
                           <div class="carousel-caption">
                             <h4>{Caption}</h4>
                           </div>
                         {/block:Caption}
                       </div>
-                    </div>
-                  {/block:Photos}
-                <!-- Carousel nav -->
-                <a class="carousel-control left" href="#photosetCarousel" data-slide="prev">&lsaquo;</a>
-                <a class="carousel-control right" href="#photosetCarousel" data-slide="next">&rsaquo;</a>
-              </div>       
-              <script>
-                $(document).ready(function(){
-                  $('#photo1').addClass('active');
-                });   
-              </script>        
+                    {/block:Photos}
+                  </div>
+                  
+                  <!-- Carousel nav -->
+                  <a class="carousel-control left" href="#photosetCarousel" data-slide="prev">&lsaquo;</a>
+                  <a class="carousel-control right" href="#photosetCarousel" data-slide="next">&rsaquo;</a>
+                </div>       
+                <script>
+                  // set the first photo in the photoset as the active one.
+                  $(photosetInner)[0].childNodes[1].classList.add('active');
+                </script>
               {/block:Photoset}
 
 
