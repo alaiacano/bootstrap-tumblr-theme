@@ -7,6 +7,7 @@
 
     <!-- General -->
     <meta name="text:Google Analytics UA Code" content="" /> 
+    <meta name="if:Use Responsive Styles" content="1" />
 
     <!-- Sharing Buttons -->
     <meta name="text:Tweet Via Account" content=""/>
@@ -22,9 +23,8 @@
     <link href="{Favicon}" rel="shortcut icon" />
     <link rel="apple-touch-icon" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}"> 
-
     
-    <title>{block:PostTitle}{PostTitle} - {/block:PostTitle}{Title}{block:Pagination} - {lang:Page CurrentPage of TotalPages}{/block:Pagination}</title> 
+    <title>{block:PostTitle}{PostTitle} - {/block:PostTitle}{Title}</title> 
 
     <!-- ======== STYLES ======== -->
 
@@ -56,8 +56,10 @@
       /* --- POSTS --- */
       .MAINTEXT {
         font-size: 16px;
-        font-weight: 300;
+        font-weight: 200;
+        line-height: 125%;
       }
+      .li {line-height: 125%;}
 
         /* --- QUOTES --- */
         .QUOTE {font-style: italic;}
@@ -201,9 +203,6 @@
                 <li class="divider-vertical"></li>
               </ul>
     
-              <form class="navbar-search pull-right" action="/search" method="get">
-                <input type="text" class="search-query" placeholder="Tag Search..." id="search" name="q" value="" />
-              </form>
             </div> <!-- nav-collapse -->
 
           </div> <!-- container -->
@@ -402,13 +401,13 @@
               {block:Quote}
               
                 <div class="QUOTEINFO">
-                  
-                  <div class="QUOTEMARK"></div>
-                  <blockquote>
-                    <p class="QUOTE">{Quote}</p>
-                  </blockquote>
+               
+                    <p class="MAINTEXT alert alert-info">
+                      <strong>&ldquo;</strong>{Quote}<strong>&rdquo;</strong>
+                    </p>
 
                   {block:Source}
+
                     <div class="MAINTEXT">
                       {Source}
                     </div>
@@ -443,7 +442,7 @@
                 <ul class="CHAT">
                 
                   {block:Lines}
-                  <li class="MAINTEXT chat">{block:Label}<strong class="chatuser{UserNumber}">{Label}</strong> {/block:Label}{Line}</li>
+                  <li class="chat MAINTEXT">{block:Label}<strong class="chatuser{UserNumber}">{Label}</strong> {/block:Label}{Line}</li>
                   {/block:Lines}
                   
                 </ul>
