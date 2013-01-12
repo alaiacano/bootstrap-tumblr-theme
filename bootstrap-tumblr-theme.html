@@ -3,7 +3,6 @@
   <head> 
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- General -->
     <meta name="text:Google Analytics UA Code" content="" /> 
@@ -16,6 +15,35 @@
     <!-- Comments -->
     <meta name="text:Disqus shortname" content=""/>
 
+    <!-- lastfm -->
+    <meta name="text:Lastfm username">
+    <meta name="text:Lastfm apikey">
+    {block:ifLastfmApikey}{block:ifLastfmUsername}
+      <script language="JavaScript">
+        function lastfm_onetrack(){
+          // var cnt = 0;
+          $.ajax({
+            type: "GET",
+            url: 'http://ws.audioscrobbler.com/2.0/?callback=?',
+            
+            processData: true,
+            data: {
+              method:  "user.getrecenttracks",
+              format:  "json",
+              limit:   3,
+              user:  '{text:Lastfm username}',
+              api_key: '{text:Lastfm apikey}'
+            },
+            dataType: "json",
+            success: function(data) {
+              var track = data.recenttracks.track[0];
+              $('#lastfm').html('<i class="icon-music"></i> '+ track.artist["#text"] + ' "' + track.name + '"');
+            }
+          });
+        }
+        $(document).ready(lastfm_onetrack());
+      </script>
+    {/block:ifLastfmApikey}{/block:ifLastfmUsername}
     <!-- END TUMBLR APPEARANCE OPTIONS -->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
@@ -23,6 +51,7 @@
     <link href="{Favicon}" rel="shortcut icon" />
     <link rel="apple-touch-icon" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}"> 
+    
     
     <title>{block:PostTitle}{PostTitle} - {/block:PostTitle}{Title}</title> 
 
@@ -117,25 +146,8 @@
 
     </style>
  
-    <style type="text/css">
-      <!--
-        {CustomCSS}
-      -->
-    </style> 
-
   </head> 
   <body>
-
-    {block:IfShowLikeButton}
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=325405900855984";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-    {/block:IfShowLikeButton}
 
     <header>
       <div class="navbar navbar-fixed-top">
@@ -200,7 +212,12 @@
                   </a>
                 </li>
 
-                <li class="divider-vertical"></li>
+                {block:ifLastfmApikey}{block:ifLastfmUsername}
+                  <li class="divider-vertical"></li>
+                  <li class='pull-right'>
+                    <a id='lastfm' href="http://www.last.fm/user/{text:Lastfm username}"></a>
+                  </li>
+                {/block:ifLastfmUsername}{/block:ifLastfmApikey}
               </ul>
     
             </div> <!-- nav-collapse -->
@@ -345,7 +362,7 @@
               
                 <div class="CENTER title">
               
-                  {LinkOpenTag}<img alt="{PhotoAlt}" src="{PhotoURL-500}" />{LinkCloseTag}
+                  {LinkOpenTag}<img src="{PhotoURL-500}" />{LinkCloseTag}
 
                 </div>
 
