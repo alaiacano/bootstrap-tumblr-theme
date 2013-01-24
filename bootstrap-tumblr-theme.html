@@ -216,14 +216,14 @@
                     <i class='icon-plus'></i>Follow
                   </a>
                 </li>
-
-                {block:ifLastfmApikey}{block:ifLastfmUsername}
-                  <li class="divider-vertical"></li>
-                  <li class='pull-right'>
-                    <a id='lastfm' href="http://www.last.fm/user/{text:Lastfm username}"></a>
-                  </li>
-                {/block:ifLastfmUsername}{/block:ifLastfmApikey}
               </ul>
+
+              {block:ifLastfmApikey}{block:ifLastfmUsername}
+                <div class='pull-right navbar-text'>
+                  <span id='lastfm'></span>
+                </div>
+              {/block:ifLastfmUsername}{/block:ifLastfmApikey}
+
     
             </div> <!-- nav-collapse -->
 
@@ -450,9 +450,9 @@
               
               {block:Link}
                 
-                <h3 class="title">
+                <h2 class="title">
                   <a href="{URL}" target="{Target}">{Name}</a>
-                </h3>
+                </h2>
                 
                 {block:Description}         
                   <div class="MAINTEXT">{Description}</div>
